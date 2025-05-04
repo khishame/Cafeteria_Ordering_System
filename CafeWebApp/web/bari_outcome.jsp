@@ -18,6 +18,7 @@
             <li>Add new food <a href="add.jsp">here</a></li>
             <li>Delete food <a href="delete.jsp">here</a></li>
             <li>View Current Menu <a href="view.jsp">here</a></li>
+            <li>View Current orders <a href="ord.jsp">here</a></li>
         </ul>
         
     </body>

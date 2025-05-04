@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -78,7 +79,40 @@ public class LogicServ extends HttpServlet {
             
             url ="view_outcome.jsp";
             
-        }
+        }else if(op.equalsIgnoreCase("menu")){
+            
+            List<Cafeteria> ca = cf.findAll();
+            
+            request.setAttribute("ca",ca);
+            
+            url ="views_outcome.jsp";
+            
+        }else if(op.equalsIgnoreCase("order")){
+            
+            url ="order_income.jsp";
+        }else if(op.equalsIgnoreCase("orders")){
+    
+    String num = request.getParameter("num");
+    String fName = request.getParameter("fname");
+    
+    Orders ord = new Orders(num, fName);
+    
+    Cafeteria c = new Cafeteria();
+    
+    List<Orders> or = c.getOrder();
+    
+    if (or == null) {
+        or = new ArrayList<>();
+    }
+    
+    or.add(ord);
+    c.setOrder(or);
+    
+    cf.create(c);
+    
+    url = "orders_outcome.jsp";
+}
+
         
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
