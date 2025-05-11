@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ordered Food Outcome Page</title>
     </head>
     <body>
         <h1>Food ordered!</h1>
