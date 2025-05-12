@@ -21,7 +21,7 @@ import za.ac.tut.entity.Orders;
 public class LogicServ extends HttpServlet {
 
     @EJB
-    private CafeteriaFacadeLocal cf;
+  
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,17 +77,7 @@ public class LogicServ extends HttpServlet {
         cf.create(ca);
     }
 
-    private void handleRemoveOperation(HttpServletRequest request) {
-        String fName = request.getParameter("fName");
-
-        Optional<Cafeteria> cafeteriaToRemove = cf.findAll()
-            .stream()
-            .filter(c -> c.getFood().equalsIgnoreCase(fName))
-            .findFirst();
-
-        cafeteriaToRemove.ifPresent(cf::remove);
-    }
-
+    
    
 private void handleOrder(HttpServletRequest request) {
     String num = request.getParameter("num");
@@ -133,14 +123,6 @@ private void handleOrder(HttpServletRequest request) {
     request.setAttribute("orders", allOrders.isEmpty() ? null : allOrders);
 }
 
-    private byte[] getBytesFromPart(Part photo) throws IOException {
-        try (InputStream in = photo.getInputStream(); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = in.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesRead);
-            }
-            return out.toByteArray();
-        }
+  
     }
 }
