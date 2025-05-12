@@ -47,6 +47,6 @@
 
         <p class="confirmation-message">Your food order has been successfully placed.</p>
 
-        <p><a href="menu.jsp">Back to Menu</a></p>
+        <p><a href="home.html">Back to home page</a></p>
     </body>
 </html>

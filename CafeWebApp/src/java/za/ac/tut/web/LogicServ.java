@@ -3,6 +3,7 @@ package za.ac.tut.web;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.ejb.EJB;
@@ -59,6 +60,7 @@ public class LogicServ extends HttpServlet {
                 handleViewStudentOrders(request);
                 return "view_student_orders_outcome.jsp";
             case "order completed":
+                orderCompleted(request);
                 return "home.html";
             default:
                 return "home.html";
@@ -142,5 +144,16 @@ private void handleOrder(HttpServletRequest request) {
             }
             return out.toByteArray();
         }
+    }
+
+    private void orderCompleted(HttpServletRequest request) {
+        
+        Cafeteria li = new Cafeteria();
+       
+        List<Orders> ord = new ArrayList<>();
+        
+        li.setOrder(ord);
+        cf.edit(li);
+        
     }
 }
