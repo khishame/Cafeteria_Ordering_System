@@ -17,23 +17,3 @@ import za.ac.tut.bl.CafeteriaFacadeLocal;
 import za.ac.tut.entity.Cafeteria;
 import za.ac.tut.entity.Orders;
 
-@MultipartConfig
-public class LogicServ extends HttpServlet {
-
-    @EJB
-  
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        String op = request.getParameter("op").toLowerCase();
-        String url = getOutcomePage(op, request);
-
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
-
-
-
-   
-}
