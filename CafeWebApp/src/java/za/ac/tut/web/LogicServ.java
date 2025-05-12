@@ -32,61 +32,6 @@ public class LogicServ extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
-    }
-
-    private String getOutcomePage(String op, HttpServletRequest request) throws IOException, ServletException {
-        switch (op) {
-            case "student":
-                return "Stud_outcome.jsp";
-            case "barista":
-                return "bari_outcome.jsp";
-            case "add":
-                handleAddOperation(request);
-                return "add_outcome.jsp";
-            case "remove":
-                handleRemoveOperation(request);
-                return "remove_outcome.jsp";
-            case "view current menu":
-            case "menu":
-                request.setAttribute("ca", cf.findAll());
-                return op.equals("view current menu") ? "view_outcome.jsp" : "views_outcome.jsp";
-            case "order":
-                return "order_income.jsp";
-            case "orders":
-                handleOrder(request);
-                return "orders_outcome.jsp";
-            case "view student orders":
-                handleViewStudentOrders(request);
-                return "view_student_orders_outcome.jsp";
-            case "order completed":
-                return "home.html";
-            default:
-                return "home.html";
-        }
-    }
-
-    private void handleAddOperation(HttpServletRequest request) throws IOException, ServletException {
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String fName = request.getParameter("fName");
-        String price = request.getParameter("price");
-        Part photo = request.getPart("photo");
-
-        byte[] photoBytes = getBytesFromPart(photo);
-        Cafeteria ca = new Cafeteria(name, surname, fName, price, photoBytes);
-        cf.create(ca);
-    }
-
-    
-   
-
-
-    Orders ord = new Orders(num.trim(), fName.trim());
-    Optional<Cafeteria> optionalCafeteria = cf.findAll()
-        .stream()
-        .filter(c -> c.getFood().equalsIgnoreCase(fName.trim())) 
-        .findFirst();
-
 
 
 
