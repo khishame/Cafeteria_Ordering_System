@@ -120,7 +120,7 @@ private void handleOrder(HttpServletRequest request) {
         }
     }
 
-    request.setAttribute("orders", allOrders.isEmpty() ? null : allOrders);
+    
 }
 
   
