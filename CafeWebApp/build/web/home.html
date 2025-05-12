@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Category Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
+                color: #2c3e50;
+                text-align: center;
+                margin: 20px;
+            }
+            h2 {
+                color: #3498db;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 18px;
+                color: #34495e;
+            }
+            form {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                text-align: center;
+            }
+            input[type="submit"] {
+                background: #3498db;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                cursor: pointer;
+                font-weight: bold;
+                border-radius: 5px;
+                width: 200px;
+                margin: 10px;
+                transition: background 0.3s;
+            }
+            input[type="submit"]:hover {
+                background: #2980b9;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Category Selection</h2>
+        <p>Welcome! Please choose a category below to proceed.</p>
+        
+        <form action="LogicServ.do" method="POST">
+            <p>Are you a:</p>
+            <input type="submit" name="op" value="Student"/>
+            <p>or a:</p>
+            <input type="submit" name="op" value="Barista"/>
+        </form>
+    </body>
+</html>
