@@ -18,7 +18,6 @@ import za.ac.tut.bl.CafeteriaFacadeLocal;
 import za.ac.tut.entity.Cafeteria;
 import za.ac.tut.entity.Orders;
 
-<<<<<<< HEAD
 @MultipartConfig
 public class LogicServ extends HttpServlet {
 
@@ -158,5 +157,3 @@ private void handleOrder(HttpServletRequest request) {
         
     }
 }
-=======
->>>>>>> eff205e41024a3cd77d65b642653b08c39ea46fa
