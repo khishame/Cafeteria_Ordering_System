@@ -79,15 +79,7 @@ public class LogicServ extends HttpServlet {
 
     
    
-private void handleOrder(HttpServletRequest request) {
-    String num = request.getParameter("num");
-    String fName = request.getParameter("fname");
 
-    
-    if (num == null || num.trim().isEmpty() || fName == null || fName.trim().isEmpty()) {
-        request.setAttribute("error", "Student number and food name are required.");
-        return;
-    }
 
     Orders ord = new Orders(num.trim(), fName.trim());
     Optional<Cafeteria> optionalCafeteria = cf.findAll()
@@ -109,20 +101,5 @@ private void handleOrder(HttpServletRequest request) {
 }
 
 
-    private void handleViewStudentOrders(HttpServletRequest request) {
-    List<Cafeteria> cafeterias = cf.findAll();
-    List<Orders> allOrders = new java.util.ArrayList<>();
-
-    for (Cafeteria cafeteria : cafeterias) {
-        List<Orders> orders = cafeteria.getOrder();
-        if (orders != null && !orders.isEmpty()) {
-            allOrders.addAll(orders);
-        }
-    }
-
-    
-}
-
-  
-    }
+   
 }
