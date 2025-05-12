@@ -87,18 +87,7 @@ public class LogicServ extends HttpServlet {
         .filter(c -> c.getFood().equalsIgnoreCase(fName.trim())) 
         .findFirst();
 
-    if (optionalCafeteria.isPresent()) {
-        Cafeteria cafeteria = optionalCafeteria.get();
-        List<Orders> orderList = Optional.ofNullable(cafeteria.getOrder())
-            .orElseGet(() -> new java.util.ArrayList<>());
-        orderList.add(ord);
-        cafeteria.setOrder(orderList);
-        cf.edit(cafeteria);
-        request.setAttribute("message", "Order placed successfully!");
-    } else {
-        request.setAttribute("error", "No cafeteria found for food: " + fName);
-    }
-}
+
 
 
    
